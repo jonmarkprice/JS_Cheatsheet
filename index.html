@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Reference Sheet</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+  	<h2>Uncat. notes</h2>
+  	<pre>
+		Object
+		apply, bind, call, toString, valueOf, defineProperty
+
+		var obj = {get prop() {...}}
+		obj.prop //calls get prop()
+
+
+		var obj = {set prop(val) {…}}
+		obj.prop = v1 //calls set prop(v1)
+	</pre>
+
+	<h2>Array</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Method</th>
+				<th>Description</th>
+				<th>&check;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>concat()</th>
+				<td>Joins two or more arrays, and returns a copy of the joined arrays</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>filter(callback, this)</th>
+				<td>items in array that meet requirement</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>indexOf()</th>
+				<td>Search the array for an element and returns its position</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>join()</th>
+				<td>Joins all elements of an array into a string</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>lastIndexOf()</th>
+				<td>Search the array for an element, starting at the end, and returns its position</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>pop()</th>
+				<td>Removes the last element of an array, and returns that element</td>
+				<td>yes</td>
+			</tr>
+			<tr>
+				<th>push(elem1, ...)</th>
+				<td>Adds new elements to the end of an array, and returns the new length</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>reduce(callback, init)</th>
+				<td>reduce to one value callback(prev, curr, index, arr)</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>reverse()</th>
+				<td>Reverses the order of the elements in an array</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>shift()</th>
+				<td>Removes the first element of an array, and returns that element</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>slice(begin, end)</th>
+				<td>Selects a part of an array, and returns the new array</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>sort(callback)</th>
+				<td>Sorts the elements of an array</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>splice()</th>
+				<td>Adds/Removes elements from an array</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>toString()</th>
+				<td>Converts an array to a string, and returns the result</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>unshift(elem1, ...)</th>
+				<td>Adds new elements to the beginning of an array, and returns the new length</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>valueOf()</th>
+				<td>Returns the primitive value of an array</td>
+				<td>no</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<h2>String</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Method</th>
+				<th>Description</th>
+				<th>&check;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>charAt(index)</th>
+				<td>Returns the character at the specified index (position)</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>charCodeAt()</th>
+				<td>Returns the Unicode of the character at the specified index</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>concat()</th>
+				<td>Joins two or more strings, and returns a new joined strings</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>fromCharCode()</th>
+				<td>Converts Unicode values to characters</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>indexOf()</th>
+				<td>Returns the position of the first found occurrence of a specified value in a string</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>lastIndexOf()</th>
+				<td>Returns the position of the last found occurrence of a specified value in a string</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>localeCompare()</th>
+				<td>Compares two strings in the current locale</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>match()</th>
+				<td>Searches a string for a match against a regular expression, and returns the matches</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>replace()</th>
+				<td>Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>search()</th>
+				<td>Searches a string for a specified value, or regular expression, and 	returns the position of the match</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>slice()</th>
+				<td>Extracts a part of a string and returns a new string</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>split()</th>
+				<td>Splits a string into an array of substrings</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>substr()</th>
+				<td>Extracts the characters from a string, beginning at a specified start 	position, and through the specified number of character</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>substring()</th>
+				<td>Extracts the characters from a string, between two specified indices</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>toLocaleLowerCase()</th>
+				<td>Converts a string to lowercase letters, according to the host's locale</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>toLocaleUpperCase()</th>
+				<td>Converts a string to uppercase letters, according to the host's locale</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>toLowerCase()</th>
+				<td>Converts a string to lowercase letters</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>toString()</th>
+				<td>Returns the value of a String object</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>toUpperCase()</th>
+				<td>Converts a string to uppercase letters</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>trim()</th>
+				<td>Removes whitespace from both ends of a string</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>valueOf()</th>
+				<td>Returns the primitive value of a String object</td>
+				<td>no</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<h2>Math</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Method</th>
+				<th>Description</th>
+				<th>&check;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>abs(x)</th>
+				<td>Returns the absolute value of x</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>ceil(x)</th>
+				<td>Returns x, rounded upwards to the 	nearest integer</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>exp(x)</th>
+				<td>Returns the value of Ex</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>floor(x)</th>
+				<td>Returns x, rounded downwards to the 	nearest integer</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>log(x)</th>
+				<td>Returns the natural logarithm (base E) of x</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>max(x,y,z,...,n)</th>
+				<td>Returns the number with the highest value</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>min(x,y,z,...,n)</th>
+				<td>Returns the number with the lowest value</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>pow(x,y)</th>
+				<td>Returns the value of x to the power of y</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>random()</th>
+				<td>Returns a random number between 0 and 1</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>round(x)</th>
+				<td>Rounds x to the nearest integer</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>sqrt(x)</th>
+				<td>Returns the square root of x</td>
+				<td>no</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h2>RegEx</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Method</th>
+				<th>Description</th>
+				<th>&check;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>exec()</th>
+				<td>Tests for a match in a string. Returns the first match</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>test()</th>
+				<td>Tests for a match in a string. Returns true or false</td>
+				<td>no</td>
+			</tr>
+			<tr>
+				<th>toString()</th>
+				<td>Returns the string value of the regular expression</td>
+				<td>no</td>
+			</tr>
+		</tbody>
+	</table>
+  
+  	<script src="coloring.js"></script>
+  </body>
+</html>
