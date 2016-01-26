@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>JavaScript API</title>
+        <style>
+            li.object {
+                border-style: solid;
+                border-width: 1px;
+                border-color: grey;
+                background-color: lightgrey;
+                margin: 0.25em;
+                display: block;
+                list-style-type: none;
+            }
+            .object > h2 {
+                display: inline;
+            }
+        </style>
+	</head>
+	<body>
+		
+		<h1>JavaScript Objects</h1>
+		<button id="new_object">+</button>
+		
+		<!-- sections for top-level objects -->
+		<ul id="objects">
+		</ul>
+
+        <hr />
+        <!-- JSON area -->
+        <button id="print_json">Print JSON</button>
+        <pre id="json_area"></pre>
+
+    <script type="text/javascript">
+            'use strict';
+
+            // object declarations
+            var record,
+                newObjButton,
+                printJSONButton;
+
+            // method declarations
+            var newMethod;
+            newMethod = function (event) {
+                var methodName,
+                    methodItem;
+
+                methodName = window.prompt('Enter method name.');
+                methodItem = document.createElement('li');
+                methodItem.textContent = methodName;
+
+                /* TODO: 
+                    - Add method name to appropriate object in record.
+                    | To do this, will need to search for the object in the 
+                    | record, I could write code here do do that, or I could 
+                    | use an OOP approach and make `record` a module with a 
+                    | method to search for a specific object.
+                    | I think I will draft it out here, then move it later to 
+                    | its own module.
+                    - Use JSUnit or similar (see Pocket)
+                    - push to Git, maybe in its own folder.
+                    - make a small PHP script and use AJAX to save the JSON to
+                      a file.
+                */
+
+                event.target.previousSibling.appendChild(methodItem);
+            };
+
+            // "global" record object
+            record = {objects: []}; //TODO: make into module with methods
+
+            printJSONButton = document.getElementById('print_json');
+            printJSONButton.onclick = function() {
+                var jsonElem;
+                jsonElem = document.getElementById('json_area');
+                jsonElem.textContent = JSON.stringify(record);
+            }
+
+			newObjButton = document.getElementById('new_object');
+            newObjButton.onclick = function() {
+				// object declarations
+				var objElem,
+                    objList,
+                    objRecord,
+                    heading,
+                    headingText,
+                    methodsHeading,
+                    methodList,
+                    newMethodButton;
+                
+                headingText = window.prompt('Enter the name of the object.');
+                
+                // record object
+                objRecord = {name: headingText, methods: []};
+                record.objects.push(objRecord);
+
+				objList = document.getElementById('objects');
+                
+                objElem = document.createElement('li');
+                objElem.classList.add('object');
+
+                heading = document.createElement('h2');
+                heading.textContent = headingText;
+
+                methodsHeading = document.createElement('h3')
+                methodsHeading.textContent = 'Methods';
+
+                newMethodButton = document.createElement('button');
+                newMethodButton.textContent = '+';
+                newMethodButton.onclick = newMethod;
+
+                methodList = document.createElement('ul');
+                methodList.classList.add('method_list');
+
+				objElem.appendChild(heading);
+                objElem.appendChild(methodsHeading);
+                objElem.appendChild(methodList);
+                objElem.appendChild(newMethodButton);
+
+                objList.appendChild(objElem);
+			}
+		</script>
+	</body>
+</html>

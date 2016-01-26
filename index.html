@@ -31,17 +31,27 @@
 		</thead>
 		<tbody>
 			<tr>
-				<th>concat()</th>
-				<td>Joins two or more arrays, and returns a copy of the joined arrays</td>
-				<td>no</td>
+				<th>concat(array1, [..., arrayN])</th>
+				<td>Joins two or more arrays to the object, and returns a copy of the joined arrays.
+				</td>
+				<td>yes</td>
 			</tr>
 			<tr>
 				<th>filter(callback, this)</th>
-				<td>items in array that meet requirement</td>
-				<td>no</td>
+				<td>Returns the items in array that meet requirement
+				<dl><dt>callback(value, index, array)</dt>
+					<dd>
+						<ol>
+							<li>the value of the element</li>
+							<li>the index of the element</li>
+							<li>the Array object being traversed</li>
+						</ol>
+					</dd></dl>
+				</td>
+				<td>yes</td>
 			</tr>
 			<tr>
-				<th>indexOf()</th>
+				<th>indexOf(element)</th>
 				<td>Search the array for an element and returns its position</td>
 				<td>no</td>
 			</tr>

@@ -33,3 +33,17 @@ table, th, td {
 .done {
   background-color: #cfc;
 }
+
+
+ol { padding-left: 0; }
+
+dd { margin-left: 2em; }
+
+dl { 
+  margin-top: 0em;
+  margin-bottom: 0.25em; 
+}
+
+dt {
+  font-family: monospace;
+}

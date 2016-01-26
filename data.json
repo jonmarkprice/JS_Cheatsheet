@@ -1,0 +1,38 @@
+{
+  "objects": [
+    {
+      "name": "Object",
+      "properties": [],
+      "methods": []
+    },
+    {
+      "object": "Array",
+      "methods": [
+        {
+          "name": "filter", //technically it might be easier to use a grammar-like notation
+          "arguments": [
+            {
+              "id": "callback",
+              "type": "Function",
+              "usage": "",
+              "nargs": 3,
+              "arguments": [
+                {"usage": "value of element", "type": "Object"},
+                {"usage": "index of element", "type": "Number"},
+                {"usage": "array", "type": "Array"}
+              ]
+            },
+          ]
+          "description": "...",
+          "example": "[0, 'a', -1, 2].filter(function(value) { if (value < 1) { return false; } else return true; })"
+          "done": true
+        },
+        {
+          ...
+        }
+      ],
+      ...
+    },
+    ...
+  ]
+}
