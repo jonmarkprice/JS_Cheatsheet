@@ -18,73 +18,96 @@ function parseAjax(jsonText) {
       domObj,
       main;
   jsonObj = JSON.parse(jsonText);
-  domObj = parseItem(jsonObj);
+  domObj = parseValue(jsonObj);
   
   // add everything to the document
   main = document.getElementById('generated-content');
   main.appendChild(domObj);
 }
 
-function parseItem(jsonItem) {
+function parseValue(jsonValue) {
   var node;
-  switch (typeof jsonItem) {
+  switch (typeof jsonValue) {
     case 'object':
-      node = parseObj(jsonItem);
+      node = parseObj(jsonValue);
       break;
     //TODO: are there others ???
     case 'string': 
     case 'number':
     case 'boolean':
+      console.log('default case');
+      node = createPrimitive(jsonValue);
+      break;
     default:
       //TODO: handle undefined, etc.
-      console.log('default case');
-      node = createPrimitive(jsonItem);
   }
   return node;
 }
 
-// TODO refactor and rename to createObj
-function parseObj(jsonObj) {
+// TODO (mb.) integrate into parseValue
+function parseObj(jsonValue) {
   var node;
-  if (Array.isArray(jsonObj)) {
-    console.log('is array');
-    node = createList(jsonObj);
+  if (Array.isArray(jsonValue)) {
+    //console.log('is array');
+    node = createList(jsonValue);
+  }
+  // in JS, null is an object
+  else if (jsonValue === null) {
+    node = createPrimitive(null); //or use 'null'
   }
   else {
     console.log('not array');
-    node = document.createElement('pre');
-    node.textContent = 'TODO';
+    node = createDL(jsonValue);
+    //node = document.createElement('pre');
+    //node.textContent = 'TODO';
   }
   return node;
 }
 
-// merge with createList, rename to that
+function createDL(jsonObj) {
+  var prop,
+      dl,
+      dt,
+      dd,
+      value;
+  // create description list
+  dl = document.createElement('dl');
+  
+  for (prop in jsonObj) {
+    dt = document.createElement('dt');
+    dd = document.createElement('dd');
+    
+    // dt can only be a string
+    dt.textContent = prop;
+    
+    // value could be anything
+    value = parseValue(jsonObj[prop]);
+    dd.appendChild(value);
+    
+    dl.appendChild(dt);
+    dl.appendChild(dd);
+  }
+  return dl;
+}
+
 function createList(jsonArray) {
   var list,
       i,
-      item,
+      value,
       node;
   list = document.createElement('ul');
   for (i = 0; i < jsonArray.length; i++) {
-    node = parseItem(jsonArray[i]);
-    item = document.createElement('li');
-    item.appendChild(node)
-    list.appendChild(item);
+    node = parseValue(jsonArray[i]);
+    value = document.createElement('li');
+    value.appendChild(node)
+    list.appendChild(value);
   }
   return list;
 }
 
 function createPrimitive(primitive) {
-  var elem;
-  
-  // We don't really need this to be an element, at present. However,
-  // it will help later with styling, and simplies the parseAjax 
-  // function, since we don't have to worry about whether each "item"
-  // is a DOM Element, or just a Node.
-  // I don't think you can call appendChild on just a string...
-  elem = document.createElement('span');
-  elem.textContent = primitive; 
-  return elem;
+  // massively simplified
+  return document.createTextNode(primitive);
 }
 
 sendAjax();
