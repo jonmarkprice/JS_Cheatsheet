@@ -1,12 +1,18 @@
 'use strict';
 
-function sendAjax(root) {
+var file = 'data.json';
+document.getElementById('status').textContent = 'Reading "' + file + '".';
+sendAjax(file);
+
+//------------
+
+function sendAjax(jsonFile) {
   var req = new XMLHttpRequest();
-  req.open('GET', 'test_data.json', true);
+  req.open('GET', jsonFile, true);
   req.setRequestHeader('Content-type', 'application/json');
   req.onload = function() {
     var text = req.responseText;
-    return parseAjax(text, root);
+    return parseAjax(text);
   };
   req.send();
 }
@@ -57,37 +63,38 @@ function parseObj(jsonValue) {
   }
   else {
     console.log('not array');
-    node = createDL(jsonValue);
-    //node = document.createElement('pre');
-    //node.textContent = 'TODO';
+    node = createPropertyList(jsonValue);
   }
   return node;
 }
 
-function createDL(jsonObj) {
+// trying a marked up list
+function createPropertyList(jsonObj) {
   var prop,
-      dl,
-      dt,
-      dd,
+      list,
+      pair,
+      keyField,
+      valueField,
       value;
-  // create description list
-  dl = document.createElement('dl');
-  
+  list = document.createElement('ul');
   for (prop in jsonObj) {
-    dt = document.createElement('dt');
-    dd = document.createElement('dd');
+    pair = document.createElement('li');
+    pair.classList.add('key-value_pair')
     
-    // dt can only be a string
-    dt.textContent = prop;
+    keyField = document.createElement('span');
+    keyField.classList.add('key');
+    keyField.textContent = prop;
+    pair.appendChild(keyField);
     
-    // value could be anything
+    valueField = document.createElement('span');
+    valueField.classList.add('value');
     value = parseValue(jsonObj[prop]);
-    dd.appendChild(value);
+    valueField.appendChild(value);
+    pair.appendChild(valueField);
     
-    dl.appendChild(dt);
-    dl.appendChild(dd);
+    list.appendChild(pair);
   }
-  return dl;
+  return list;
 }
 
 function createList(jsonArray) {
@@ -95,7 +102,7 @@ function createList(jsonArray) {
       i,
       value,
       node;
-  list = document.createElement('ul');
+  list = document.createElement('ol');
   for (i = 0; i < jsonArray.length; i++) {
     node = parseValue(jsonArray[i]);
     value = document.createElement('li');
@@ -109,9 +116,3 @@ function createPrimitive(primitive) {
   // massively simplified
   return document.createTextNode(primitive);
 }
-
-sendAjax();
-
-
-
-
