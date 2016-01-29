@@ -1,14 +1,26 @@
 /* border */
-ul {
+/* ul {
   border-style: solid;
-  border-width: 1px 0px 1px 1px;
+  border-width: 0px;
+  // border-width: 1px 0px 1px 1px;
   border-color: grey;
-  /*! border-left-width: 1px; */
-}
+  // border-left-width: 1px; 
+} */
 
 ol { 
   border-style: solid;
-  border-width: 0px 0px 0px 1em;
+  border-width: 0px;
+  /* border-width: 0px 0px 0px 1em;*/
   border-color: lightblue;
 }
 /* use this instead of everything else... possibly in conjunction with a span */
+
+/* li.key-value_pair */
+ul {
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  
+  border-left: 4px solid steelblue;
+  
+}
