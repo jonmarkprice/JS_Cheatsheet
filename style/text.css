@@ -1,0 +1,16 @@
+/* text and font */
+span.key {
+  font-weight: bold;
+}
+
+span.key:after {
+  content: ":";
+}
+
+ol > li {
+  font-size: 8pt;
+}
+
+ol > li > span.list_item {
+  font-size: 12pt;
+}

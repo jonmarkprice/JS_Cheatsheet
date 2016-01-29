@@ -1,0 +1,4 @@
+/* list-specific properties */
+/* from: http://stackoverflow.com/questions/13976292/ */
+
+ul {list-style-type: none; }

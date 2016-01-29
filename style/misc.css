@@ -1,0 +1,15 @@
+/* Starting now I will be categorizing rules by properties (font size, color, etc.)
+  instead of element */
+
+/* background color */
+ul {background-color: #F3F3F3;}
+
+/* The problem with using these pseudoselectors instead of surrounding
+  the the <li> content with a <span> is that we then can't use background
+  color very well. (it acts like a text-highlight rather than a block 
+  background).
+
+  Another problem, as I had before is that an empty list still takes a whole
+  line.
+*/
+

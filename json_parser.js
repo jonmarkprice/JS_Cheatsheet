@@ -101,12 +101,18 @@ function createList(jsonArray) {
   var list,
       i,
       value,
-      node;
+      node,
+      valueSpan;
   list = document.createElement('ol');
   for (i = 0; i < jsonArray.length; i++) {
     node = parseValue(jsonArray[i]);
+    
+    valueSpan = document.createElement('span');
+    valueSpan.classList.add('list_item');
+    valueSpan.appendChild(node)
+    
     value = document.createElement('li');
-    value.appendChild(node)
+    value.appendChild(valueSpan);
     list.appendChild(value);
   }
   return list;
