@@ -7,10 +7,6 @@ span.key:after {
   content: ":";
 }
 
-ol > li {
-  font-size: 8pt;
-}
+ol > li { font-size: 9pt; }
 
-ol > li > span.list_item {
-  font-size: 12pt;
-}
+* {font-size: 12pt;}
