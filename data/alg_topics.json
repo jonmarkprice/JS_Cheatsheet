@@ -1,0 +1,57 @@
+{
+    "discr. math": [
+      "combination = n! / k!*(n - k)!",
+      "permutation = n! / (n - k)!"
+    ],
+    "data structures": [
+      { 
+        "graphs": 
+          {"algorithms":
+              {"traversal / search": [
+                "bfs",
+                "dfs",
+                "A*",
+                "iterative deepening"
+              ],
+              "shortest path": "SSSP"
+              }
+          },
+        "trees": [
+          "shortest path",
+          {"trees": 
+            {"traversal": [
+              "in-order", 
+              "pre-order", 
+              "post-order"
+            ]}
+          }
+        ],
+        "types": [
+          "bst",
+          {"balanced":[
+            "AVL tree",
+            "Red-Black tree"
+            ],
+            "trie": [
+              "ternary s.t.[?]",
+              "L-child, R-sibling"
+          ]},
+          "N-ary"
+        ]
+      },
+      "heap",
+      "stack",
+      "queue",
+      {"lists & arrays": [
+          {"search": [
+            "lin.",
+            "bin"
+          ]},
+          "sort",
+          {"array": "dyn. resizing"},
+          "linked list"
+      ]},
+      "hash"
+    ]
+}
+

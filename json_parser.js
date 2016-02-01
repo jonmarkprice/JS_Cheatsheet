@@ -1,10 +1,36 @@
 'use strict';
+//file = 'data.json'; //default data
+var loadButton = document.getElementById('load_button'),
+    filename = 'data/alg_topics.json',
+    editing = false,
+    editButton = document.getElementById('edit_button');
+    
+sendAjax(filename);
 
-var file = 'data.json';
-document.getElementById('status').textContent = 'Reading "' + file + '".';
-sendAjax(file);
+editButton.onclick = function() {
+  editing = !editing;
+  
+  //convert false to 0, true to 1, access appropriate button label
+  var labels = ['Edit', 'Cancel Editing'];
+  editButton.textContent = labels[Number(editing)];
+  
+  // need to reload DOM to append buttons at approaprate spots
+  sendAjax(filename)
+}
 
-//------------
+loadButton.onclick = function() {
+  var file_input = document.getElementById('file_input'), //const
+      status = document.getElementById('status');
+  if (file_input.value !== '') {
+    filename = file_input.value;
+    status.textContent = 'Reading "' + filename + '".';
+  }
+  else {
+    status.textContent =  'No value given, using default value: "' + 
+      filename + '".';
+  }
+  sendAjax(filename);
+}
 
 function sendAjax(jsonFile) {
   var req = new XMLHttpRequest();
@@ -28,6 +54,7 @@ function parseAjax(jsonText) {
   
   // add everything to the document
   main = document.getElementById('generated-content');
+  main.innerHTML = '';
   main.appendChild(domObj);
 }
 
@@ -115,6 +142,11 @@ function createList(jsonArray) {
     value.appendChild(valueSpan);
     list.appendChild(value);
   }
+  
+  // enable / disable editing
+  if (editing) {
+    list.appendChild(createAdder(list));
+  }
   return list;
 }
 
@@ -122,3 +154,48 @@ function createPrimitive(primitive) {
   // massively simplified
   return document.createTextNode(primitive);
 }
+
+// New Stuff ///////////////////////////////////////////////////////////
+function createAdder(node) {
+  var button,
+      listItem;
+  button = document.createElement('span');
+  button.textContent = '+';
+  button.classList.add('button'); //TODO
+  button.onclick = function(event) { 
+    createAddField(node, event.target);
+  };
+  listItem = document.createElement('li');
+  listItem.appendChild(button);
+  return listItem;
+}
+
+function createAddField(node, button) {
+  var entryField,
+      addButton;
+  button.style.display = 'none';
+    
+  entryField = document.createElement('input');
+  entryField.type = 'text';
+  node.insertBefore(entryField, node.lastChild);
+  
+  addButton = document.createElement('button');
+  addButton.textContent = '+';
+  addButton.onclick = function(){ 
+    //window.alert('!');
+    button.style.display = 'initial';
+    entryField.style.display = 'none';
+    addButton.style.display = 'none';
+    
+    var newElem,
+        newLi;
+    newElem = document.createElement('span')
+    newElem.textContent = entryField.value;
+    newLi = document.createElement('li');
+    newLi.appendChild(newElem);
+    node.insertBefore(newLi, node.lastChild);
+    
+  }; //TODO
+  node.insertBefore(addButton, node.lastChild);
+}
+

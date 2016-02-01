@@ -9,9 +9,13 @@
 
 /* li.key-value_pair */
 ol, ul {
-  border-width: 1px;
+  border-width: 0px;
   border-style: solid;
   border-color: lightgrey;
-  
-  border-left: 3px solid steelblue;
 }
+
+ul {
+  border-left: 2px solid lightblue;
+}
+
+/* ol { border-left: 1px solid lightgrey; } */

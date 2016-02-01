@@ -2,7 +2,7 @@
   instead of element */
 
 /* background color */
-ul {background-color: #F3F3F3;}
+ul {background-color: light;}
 
 /* The problem with using these pseudoselectors instead of surrounding
   the the <li> content with a <span> is that we then can't use background
