@@ -1,0 +1,16 @@
+{"algorithm": {
+  "name": "",
+  "input": "",
+  "output": "",
+  "data_struct": "e.g. Graph, String, Array",
+  "running_time": {
+    "best": "",
+    "worst": "",
+    "average": ""
+  },
+  "space": {
+    "best": "",
+    "worst": "",
+    "average": ""
+  }
+}
