@@ -1,0 +1,44 @@
+{"template":
+[
+  {
+    "name": "<ABSTRACT DATA STRUCTURE>",
+    "operations": [
+      {
+        "name": "",
+        "description": "",
+        "algorithms": [
+          "<SEE algs_aspects.json>"
+        ]
+      }
+    ],
+    "representations": [
+      "e.g. linked list, array, ..."
+    ]
+  },
+  "..."
+],
+"categories": {
+  "list": [
+    "linked-list",
+    "array",
+    "stack",
+    "queue"
+  ],
+  "tree": [
+    "BST",
+    "N-ary",
+    {"trie": [
+      "ternary",
+      "L-child, R-sibling"
+    ]}
+  ],
+  "graph": [
+    "Undirected",
+    "Directed",
+    "DAG",
+  ]
+  "heap",
+  "hash table"
+}
+}
+
